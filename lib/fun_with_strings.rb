@@ -1,3 +1,4 @@
+# Man Ken is awesome
 module FunWithStrings
   def palindrome?
     # your code here
