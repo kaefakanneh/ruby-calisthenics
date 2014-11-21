@@ -1,13 +1,33 @@
-# Man Ken is awesome
 module FunWithStrings
   def palindrome?
-    # your code here
+    str = self.gsub(/\W/,"").downcase
+    str == str.reverse ? true : false
   end
   def count_words
-    # your code here
+     word_freq = Hash.new(0)
+     self.downcase.split(/\W/).each do |mem|
+     next if mem == ""
+     word_freq[mem] += 1
+     end
+     word_freq
   end
   def anagram_groups
-    # your code here
+    anagram = Hash.new([])
+    
+    if self.strip.empty?
+      []
+    else
+      self.split.each do |mem|
+        key = mem.downcase.each_char.sort.join
+
+        if anagram.keys.include?(key)
+          anagram[key] << mem
+        else 
+          anagram[key] = [mem]
+        end
+      end
+    end
+    anagram.values
   end
 end
 
