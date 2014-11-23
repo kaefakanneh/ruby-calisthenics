@@ -3,13 +3,13 @@ class Dessert
 
   def initialize(name, calories)
     @name = name
-    @caloris = calories
+    @calories = calories
   end
   def healthy?
-    (@calories < 200) ? true : false
+    @calories < 200 ? true : false
   end
   def delicious?
-    true if self
+    true if !self.nil?
   end
 end
 
@@ -19,6 +19,6 @@ class JellyBean < Dessert
   def initialize(flavor)
     super("#{flavor} Jelly bean", 5)
     @flavor = flavor
-    !delicious? if @flavor == 'licorice'
+    delicious? if @flavor != 'licorice'
   end
 end
